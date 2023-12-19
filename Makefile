@@ -6,7 +6,7 @@
 #    By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/28 19:54:55 by cleguina          #+#    #+#              #
-#    Updated: 2023/12/19 18:02:17 by cleguina         ###   ########.fr        #
+#    Updated: 2023/12/19 19:04:29 by cleguina         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIBFT_DIR = ./Libft
 LIBFT_PATH		= $(LIBFT_DIR)/libft.a
 
 PRINTF_DIR = ./Printf
-PRINTFT_PATH	= $(PRINTF_DIR)/ft_printf.a
+PRINTF_PATH	= $(PRINTF_DIR)/ft_printf.a
 
 
 SRC = pipex.c
