@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+         #
+#    By: cova <cova@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/20 17:58:22 by cleguina          #+#    #+#              #
-#    Updated: 2023/12/14 18:07:13 by cleguina         ###   ########.fr        #
+#    Updated: 2023/12/20 19:07:35 by cova             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,11 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 	ft_lstmap.c ft_strcmp.c ft_strjoin_free.c get_next_line.c \
-	get_next_line_utils.c ft_free_matrix.c ft_putnbr.c 
-	
-	
+	get_next_line_utils.c ft_free_matrix.c ft_putnbr.c ft_printf.c \
+	ft_print_char.c ft_print_countdigit.c ft_print_hex.c \
+	ft_print_itoa.c ft_print_nmbr.c ft_print_ptr.c ft_print_putstr.c \
+	ft_print_str.c ft_print_strlen.c ft_print_unsig.c ft_print_utoa.c \
+		
 
 OBJ = $(SRC:.c=.o)
 

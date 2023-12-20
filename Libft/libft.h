@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 13:32:10 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/14 18:05:48 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/20 19:08:59 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <fcntl.h>
+# include <stdarg.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
@@ -82,5 +83,18 @@ int			ft_gnl_strlen(char *str);
 char		*ft_gnl_strjoin(char *s1, char *s2);
 char		*ft_gnl_strchr(const char *s, int c);
 void		ft_free_matrix(char **str);
+int			ft_print_format(const char *str, va_list args);
+int			ft_print_char(int i);
+int			ft_print_countdigit(long long nb);
+int			ft_print_hex(unsigned int x, char cap);
+char		*ft_print_itoa(int n);
+int			ft_print_nmbr(int num);
+int			ft_print_ptr(unsigned long x);
+int			ft_print_putstr(char *str);
+int			ft_print_str(char *str);
+int			ft_print_strlen(const char *str);
+int			ft_print_unsig(unsigned int num);
+char		*ft_print_utoa(long long n);
+int			ft_printf(const char *str, ...);
 
 #endif

@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 18:25:35 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/19 19:10:29 by cleguina         ###   ########.fr       */
+/*   Updated: 2023/12/20 18:57:19 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
-# include "Libft/libft.h"
-# include "Printf/ft_printf.h"
+# include "../Libft/libft.h"
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -32,4 +31,5 @@ typedef struct s_pipex
 
 int main (int argc, char **argv);
 void	ft_l(void);
+
 #endif

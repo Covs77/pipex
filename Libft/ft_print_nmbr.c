@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   ft_print_nmbr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 17:58:52 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/19 19:41:41 by cleguina         ###   ########.fr       */
+/*   Created: 2023/05/17 20:27:48 by cleguina          #+#    #+#             */
+/*   Updated: 2023/12/20 19:11:52 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "libft.h"
 
-
-void	ft_l(void)
+int	ft_print_nmbr(int num)
 {
-	system("leaks -q pipex");
-}
+	char	*num_conv;
+	int		printed;
 
-int main (int argc, char **argv)
-{
-	argv = NULL;
-	if (argc != 5)
-	{
-		ft_printf("Error: Wrong number of arguments\n");
-		return (0);
-	}
-	
-	atexit(ft_l);
+	num_conv = ft_print_itoa(num);
+	printed = ft_print_strlen(num_conv);
+	ft_print_str(num_conv);
+	free(num_conv);
+	return (printed);
 }
