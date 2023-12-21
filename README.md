@@ -9,6 +9,7 @@ Emulador de comportamiento de pipe en shell.
 
 Ej:
 ./pipex infile "ls -l" "wc -l" outfile
+
 "<infile ls -l | wc -l > outfile"
 
 
