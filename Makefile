@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: cova <cova@student.42.fr>                  +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/11/28 19:54:55 by cleguina          #+#    #+#              #
-#    Updated: 2023/12/20 19:03:47 by cova             ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 # nombre programa
 
 NAME = pipex
@@ -26,7 +14,7 @@ LIBFT_DIR = ./Libft
 LIBFT_PATH		= $(LIBFT_DIR)/libft.a
 
 
-SRC = src/pipex.c
+SRC = src/pipex.c src/pipex_utils.c 
 
 OBJS = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 18:25:35 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/20 20:18:50 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/21 19:21:21 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,14 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
-
-
-typedef struct s_pipex
-{
-	char	**cmd1;
-	char	**cmd2;
-	char	*file1;
-	char	*file2;
-	char	*infile;
-	char	*outfile;
-}				t_pipex;
-
-int		main(int argc, char **argv);
+void	ft_parent_process (char **argv, char **envp, int *fd);
+void	ft_child_process (char **argv, char **envp, int *fd);
+void	ft_exe(char *argv, char **envp);
+void	ft_error(char *str, int fd);
+char	*ft_find_path(char *cmd, char **envp);
 void	ft_l(void);
 
 #endif
