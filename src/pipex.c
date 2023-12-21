@@ -6,7 +6,7 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:58:52 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/21 19:28:49 by cova             ###   ########.fr       */
+/*   Updated: 2023/12/21 19:44:26 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@
 void ft_exe(char *argv, char **envp)
 {
 	char **cmd;
-	//int i;
 	char *path;
 
-//	i = 0;
+
 	cmd = ft_split(argv, ' ');
 	path = ft_find_path(cmd[0], envp);
 	if (path == NULL)
@@ -31,8 +30,8 @@ void ft_exe(char *argv, char **envp)
 		ft_error("Error: Command not found\n", 2);
 	}
 	printf("path: %s\n", path);
-	printf("cmd[0]: %s\n", cmd[0]);
-	if (execve(path, cmd, envp) == -1)
+//	printf("cmd[0]: %s\n", cmd[0]);
+//	if (execve(path, cmd, envp) == -1)
 	{
 		ft_free_matrix(cmd);
 		ft_error("Error: Command not found\n", 2);
