@@ -6,14 +6,14 @@
 /*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 18:25:41 by cova              #+#    #+#             */
-/*   Updated: 2023/12/21 19:27:58 by cova             ###   ########.fr       */
+/*   Updated: 2024/01/08 13:00:18 by cova             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/pipex.h"
-# include "../Libft/libft.h"
+#include "../includes/pipex.h"
+#include "../Libft/libft.h"
 
-void ft_error(char *str, int fd)
+void	ft_error(char *str, int fd)
 {
 	write(fd, str, ft_strlen(str));
 	write(fd, "\n", 1);
@@ -25,27 +25,27 @@ void	ft_l(void)
 	system("leaks -q pipex");
 }
 
-char *ft_find_path(char *cmd, char **envp)
+char	*ft_find_path(char *cmd, char **envp)
 {
-    int i;
-    char *path;
-    char **path_split;
+	int		i;
+	char	*path;
+	char	**path_split;
 
-    i = 0;
-    while (ft_strnstr (envp[i], "PATH", 4) == 0)
-        i++;
-    path_split = ft_split(envp[i] + 5, ':');
-    i = 0;
-    while (path_split[i])
-    {
-        path = ft_strjoin(path_split[i], "/");
-        path = ft_strjoin(path, cmd);
-        free(path_split[i]);
-        if (access(path, F_OK) == 0)
-            return (path);
-        free(path);
-        i++;
-    }
-    ft_free_matrix(path_split);
-    return (0);
+	i = 0;
+	while (ft_strnstr (envp[i], "PATH", 4) == 0)
+		i++;
+	path_split = ft_split(envp[i] + 5, ':');
+	i = 0;
+	while (path_split[i])
+	{
+		path = ft_strjoin(path_split[i], "/");
+		path = ft_strjoin(path, cmd);
+		free(path_split[i]);
+		if (access(path, F_OK) == 0)
+			return (path);
+		free(path);
+		i++;
+	}
+	//free(path_split);
+	return (0);
 }
