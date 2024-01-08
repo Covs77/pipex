@@ -1,5 +1,5 @@
 
-# So_long 
+# Pipex
 Proyecto pipex de 42Málaga
 
 Este proyecto va sobre el manejo de pipes,tu programa deberá ejecutarse de la siguiente forma:
