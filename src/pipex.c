@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:58:52 by cleguina          #+#    #+#             */
-/*   Updated: 2024/01/08 12:49:13 by cova             ###   ########.fr       */
+/*   Updated: 2024/01/11 14:00:03 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	ft_parent_process(char **argv, char **envp, int *fd)
 int	main(int argc, char **argv, char **envp)
 {
 	int		fd[2];
-	pid_t	pid;
+	pid_t	pid; 
 
 	if (argc != 5)
 		ft_error("Error: Wrong number of args\n", 2);
