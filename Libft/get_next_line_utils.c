@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 18:26:10 by cova              #+#    #+#             */
-/*   Updated: 2023/12/09 15:11:33 by cova             ###   ########.fr       */
+/*   Updated: 2024/01/15 18:34:51 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*ft_gnl_strjoin(char *s1, char *s2)
 	int		j;
 
 	if (!s1)
-	{	
+	{
 		s1 = malloc (1);
 		if (!s1)
 			return (free(s1), NULL);

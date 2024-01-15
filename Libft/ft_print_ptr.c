@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 17:51:31 by cleguina          #+#    #+#             */
-/*   Updated: 2023/12/20 19:11:55 by cova             ###   ########.fr       */
+/*   Updated: 2024/01/15 18:33:05 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_print_ptr(unsigned long x)
 
 	i = 0;
 	printed = 0;
-		hexa_str = "0123456789abcdef";
+	hexa_str = "0123456789abcdef";
 	while (x >= 16)
 	{
 		res[i] = hexa_str[x % 16];

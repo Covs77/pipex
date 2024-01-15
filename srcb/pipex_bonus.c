@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:49:18 by cleguina          #+#    #+#             */
-/*   Updated: 2024/01/11 16:53:41 by cleguina         ###   ########.fr       */
+/*   Updated: 2024/01/15 18:46:06 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ft_child_process_b(int i, char **argv, char **envp, int *fd)
 	ft_exe(argv[i], envp);
 }
 
-
 void	ft_parent_process_b(int argc, char **argv, char **envp, int *fd)
 {
 	int	fileout;
@@ -41,19 +40,48 @@ void	ft_parent_process_b(int argc, char **argv, char **envp, int *fd)
 	ft_exe(argv[argc - 1], envp);
 }
 
-int ft_heredoc (char **argv)
+//abro y guardo el contenido del here_doc.tmp
+
+int	ft_heredoc(char **argv)
 {
-	int file;
-	//abro y guardo el contenido del here_doc
-	
-	file = open(argv[1], O_RDONLY, O_WRONLY, O_TRUNC, 0777);
-	if (file == -1)
+	int		file;
+	int		std_in;
+	char	*line;
+
+	std_in = dup(STDIN_FILENO);
+	file = open("here_doc.tmp", O_WRONLY, O_CREAT, O_TRUNC, 0644);
+	if (file < 0)
 		ft_error("Error. Here_doc failed\n", 2);
 	while (1)
 	{
-		
+		write(1, "heredoc> ", 9);
+		line = get_next_line(std_in);
+		if (!line)
+			ft_error("Error. Read line failed\n", 2);
+		if (!ft_strncmp(argv[2], line, ft_strlen(argv[2])))
+		{
+			close(std_in);
+			break ;
+		}
+		write(file, line, ft_strlen(line));
+		free (line);
+	}
+}
 
-	}	
+void	check_here_doc(char **argv, int *here_doc)
+{
+	if (ft_strncmp (argv[1], "here_doc", strlen("heredoc") == 0))
+	{
+		here_doc[1] = ft_heredoc(argv);
+		here_doc[0] = 1;
+	}
+	else
+	{
+		here_doc[1] = open (argv[1], O_RDONLY, 0777);
+		if (here_doc == -1)
+			ft_error("Error: Open file failed\n", 2);
+		here_doc[0] = 0;
+	}
 }
 
 int	main(int argc, char **argv, char **envp)
@@ -61,16 +89,14 @@ int	main(int argc, char **argv, char **envp)
 	int		fd[2];
 	int		i;
 	pid_t	pid;
-	int 	here_doc;
-	
+	int		here_doc[2];
 
 	if (argc < 5)
 		ft_error("Error: Wrong number of args\n", 2);
 	i = 2;
-	if (ft_strncmp (argv[1], "here_doc", strlen("heredoc") == 0))
-	{
-		here_doc = ft_heredoc(argv);
-	}
+	check_here_doc(argv, here_doc);
+	if (here_doc[0] == 1)
+		i++;
 	while (i != argc - 2)
 	{
 		if (pipe(fd) == -1)
@@ -79,10 +105,10 @@ int	main(int argc, char **argv, char **envp)
 		if (pid == -1)
 			ft_error("Error: Fork failed\n", 2);
 		if (pid == 0)
-			ft_child_process_b(i , argv, envp, fd);
+			ft_child_process_b(i, argv, envp, fd);
 		waitpid(pid, NULL, 0);
 		i++;
-	}	
+	}
 	ft_parent_process_b(i, argv, envp, fd);
 	return (0);
 }

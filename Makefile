@@ -2,7 +2,7 @@
 
 NAME = pipex
 
-NAME_BONUS = pipex_bonus
+#NAME_BONUS = pipex_bonus
 
 # compilador
 CC = gcc #-g
@@ -18,7 +18,7 @@ LIBFT_PATH		= $(LIBFT_DIR)/libft.a
 
 SRC = src/pipex.c src/pipex_utils.c
 
-SRCB = src/pipex_bonus.c src/pipex_utils_bonus.c
+SRCB = srcb/pipex_bonus.c srcb/pipex_utils_bonus.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -31,8 +31,12 @@ $(NAME): $(LIBFT_PATH) $(OBJS)
 $(OBJS): %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+$(NAME_BONUS): $(LIBFT_PATH) $(BOBJS)
+	$(CC) $(CFLAGS) $(BOBJS) $(LIBFT_PATH) $(LIB_SYS) -o $(NAME_BONUS)
+
 $(BOBJS): %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
 
 $(LIBFT_PATH):
 			@make -s -C $(LIBFT_DIR)
@@ -40,18 +44,21 @@ $(LIBFT_PATH):
 # Agrega los archivos objeto a la lista de archivos secundarios
 all: $(NAME)
 
+bonus: $(NAME_BONUS) $(BOBJS)
+	@ar rcs $(NAME_BONUS) $(BOBJS)
+
 clean:
-			@rm -f $(OBJS)
+			@rm -f $(OBJS) $(BOBJS)
 			@make clean -s -C $(LIBFT_DIR)
 			
 fclean: clean
 	@make fclean -s -C $(LIBFT_DIR)
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_BONUS)
 
 
 re: fclean all
 
-bonus: $(NAME_BONUD) $(BOBJS)
-	@ar rcs $(NAME_BONUS) $(BOBJS)
 
 .PHONY: re all clean fclean bonus
+
+

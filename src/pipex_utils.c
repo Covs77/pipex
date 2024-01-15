@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cova <cova@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 18:25:41 by cova              #+#    #+#             */
-/*   Updated: 2024/01/08 13:00:18 by cova             ###   ########.fr       */
+/*   Updated: 2024/01/15 18:35:21 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,5 @@ char	*ft_find_path(char *cmd, char **envp)
 		free(path);
 		i++;
 	}
-	//free(path_split);
-	return (0);
+	exit(127);
 }

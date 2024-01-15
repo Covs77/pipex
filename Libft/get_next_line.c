@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 18:19:01 by cleguina          #+#    #+#             */
-/*   Updated: 2023/11/29 19:16:24 by cleguina         ###   ########.fr       */
+/*   Updated: 2024/01/15 18:34:34 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_clear_stack(char *stack)
 		new[j] = stack[len_line];
 		j++;
 		len_line++;
-	}	
+	}
 	new[j] = '\0';
 	return (free(stack), stack = NULL, new);
 }
