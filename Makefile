@@ -2,7 +2,7 @@
 
 NAME = pipex
 
-#NAME_BONUS = pipex_bonus
+NAME_BONUS = pipex_bonus
 
 # compilador
 CC = gcc #-g
@@ -42,7 +42,7 @@ $(LIBFT_PATH):
 			@make -s -C $(LIBFT_DIR)
 
 # Agrega los archivos objeto a la lista de archivos secundarios
-all: $(NAME)
+all: $(NAME) $(NAME_BONUS)
 
 bonus: $(NAME_BONUS) $(BOBJS)
 	@ar rcs $(NAME_BONUS) $(BOBJS)
