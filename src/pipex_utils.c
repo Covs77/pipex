@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 18:25:41 by cova              #+#    #+#             */
-/*   Updated: 2024/01/15 18:35:21 by cleguina         ###   ########.fr       */
+/*   Updated: 2024/01/18 18:53:27 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ char	*ft_find_path(char *cmd, char **envp)
 		free(path);
 		i++;
 	}
+	write(2, "Command not found\n", 18);
 	exit(127);
 }

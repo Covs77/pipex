@@ -6,14 +6,13 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:49:18 by cleguina          #+#    #+#             */
-/*   Updated: 2024/01/16 19:40:11 by cleguina         ###   ########.fr       */
+/*   Updated: 2024/01/18 18:58:52 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
 #include "../includes/pipex.h"
 #include "../Libft/libft.h"
-
 
 void	ft_exe(char *argv, char **envp)
 {
@@ -58,21 +57,7 @@ void	ft_child_process_b(char *argv, char **envp)
 	}
 }
 
-
-/* void	ft_parent_process_b(int argc, char **argv, char **envp, int *fd)
-{
-	int	fileout;
-
-	fileout = open(argv[argc - 1], O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	if (fileout == -1)
-		ft_error("Error: File 1 failed\n", 2);
-	dup2 (fd[0], STDIN_FILENO);
-	dup2 (fileout, STDOUT_FILENO);
-	close(fd[1]);
-	ft_exe(argv[argc - 1], envp);
-} */
-
-void ft_heredoc(char *limit, int argc)
+void	ft_heredoc(char *limit, int argc)
 {
 	pid_t	reader;
 	int		fd[2];
@@ -105,14 +90,15 @@ int	main(int argc, char **argv, char **envp)
 {
 	int		i;
 	int		fileout;
-	int 	filein;
+	int		filein;
 
-	if (argc >= 5)
+	if (argc >= 4)
 	{
 		if (ft_strncmp (argv[1], "here_doc", 8) == 0)
 		{
 			i = 3;
 			fileout = ft_open_file(argv[argc - 1], 0);
+			write(2, "heredoc >\n", 10);
 			ft_heredoc (argv[2], argc);
 		}
 		else
@@ -121,8 +107,8 @@ int	main(int argc, char **argv, char **envp)
 			fileout = ft_open_file(argv[argc - 1], 1);
 			filein = ft_open_file(argv[1], 2);
 			dup2 (filein, STDIN_FILENO);
-		}		
-		while ( i < argc - 2)
+		}
+		while (i < argc - 2)
 			ft_child_process_b(argv[i++], envp);
 		dup2(fileout, STDOUT_FILENO);
 		ft_exe(argv[i], envp);

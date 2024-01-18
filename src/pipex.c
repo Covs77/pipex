@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 17:58:52 by cleguina          #+#    #+#             */
-/*   Updated: 2024/01/15 18:35:11 by cleguina         ###   ########.fr       */
+/*   Updated: 2024/01/18 18:31:21 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_parent_process(char **argv, char **envp, int *fd)
 {
 	int	fileout;
 
-	fileout = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	fileout = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fileout == -1)
 		ft_error("Error: File 1 failed\n", 2);
 	dup2 (fd[0], STDIN_FILENO);

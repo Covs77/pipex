@@ -44,8 +44,8 @@ $(LIBFT_PATH):
 # Agrega los archivos objeto a la lista de archivos secundarios
 all: $(NAME) $(NAME_BONUS)
 
-bonus: $(NAME_BONUS) $(BOBJS)
-	@ar rcs $(NAME_BONUS) $(BOBJS)
+#bonus: $(NAME_BONUS) $(BOBJS)
+#	@ar rcs $(NAME_BONUS) $(BOBJS)
 
 clean:
 			@rm -f $(OBJS) $(BOBJS)

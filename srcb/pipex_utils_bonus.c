@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 18:25:41 by cova              #+#    #+#             */
-/*   Updated: 2024/01/16 19:51:37 by cleguina         ###   ########.fr       */
+/*   Updated: 2024/01/16 20:03:52 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_error(char *str, int fd)
 {
 	write(fd, str, ft_strlen(str));
 	write(fd, "\n", 1);
-	exit(EXIT_FAILURE);
+	exit(EXIT_SUCCESS);
 }
 
 void	ft_l(void)
@@ -49,9 +49,9 @@ char	*ft_find_path(char *cmd, char **envp)
 	exit(127);
 }
 
-int ft_open_file (char *argv, int i)
+int	ft_open_file(char *argv, int i)
 {
-	int file;
+	int	file;
 
 	file = 0;
 	if (i == 0)
