@@ -6,7 +6,7 @@
 /*   By: cleguina <cleguina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:49:18 by cleguina          #+#    #+#             */
-/*   Updated: 2024/01/18 18:58:52 by cleguina         ###   ########.fr       */
+/*   Updated: 2024/01/23 18:31:29 by cleguina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,23 @@ void	ft_child_process_b(char *argv, char **envp)
 	}
 }
 
+void	ft_here_doc_util(int argc, pid_t *reader, int *fd)
+{
+	write(2, "heredoc >\n", 10);
+	if (argc < 6)
+		ft_error ("Error: Wrong number of arguments\n", 2);
+	if (pipe(fd) == -1)
+		ft_error("Error: Pipe failed\n", 2);
+	*reader = fork();
+}
+
 void	ft_heredoc(char *limit, int argc)
 {
 	pid_t	reader;
 	int		fd[2];
 	char	*line;
 
-	if (argc < 6)
-		ft_error ("Error: Wrong number of arguments\n", 2);
-	if (pipe(fd) == -1)
-		ft_error("Error: Pipe failed\n", 2);
-	reader = fork();
+	ft_here_doc_util(argc, &reader, fd);
 	if (reader == 0)
 	{
 		close(fd[0]);
@@ -98,7 +104,6 @@ int	main(int argc, char **argv, char **envp)
 		{
 			i = 3;
 			fileout = ft_open_file(argv[argc - 1], 0);
-			write(2, "heredoc >\n", 10);
 			ft_heredoc (argv[2], argc);
 		}
 		else

@@ -39,20 +39,22 @@ $(BOBJS): %.o: %.c
 
 
 $(LIBFT_PATH):
-			@make -s -C $(LIBFT_DIR)
+	make -s -C $(LIBFT_DIR)
 
 # Agrega los archivos objeto a la lista de archivos secundarios
-all: $(NAME) $(NAME_BONUS)
+all: $(NAME)
 
-#bonus: $(NAME_BONUS) $(BOBJS)
-#	@ar rcs $(NAME_BONUS) $(BOBJS)
+bonus: $(NAME_BONUS) 
+
+# $(BOBJS)
+#	ar rcs $(NAME_BONUS) $(BOBJS)
 
 clean:
-			@rm -f $(OBJS) $(BOBJS)
-			@make clean -s -C $(LIBFT_DIR)
+	rm -f $(OBJS) $(BOBJS)
+	make clean -s -C $(LIBFT_DIR)
 			
 fclean: clean
-	@make fclean -s -C $(LIBFT_DIR)
+	make fclean -s -C $(LIBFT_DIR)
 	rm -f $(NAME) $(NAME_BONUS)
 
 
